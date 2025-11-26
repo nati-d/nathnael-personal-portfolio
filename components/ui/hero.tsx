@@ -10,8 +10,8 @@ export function Container({ className, ...props }: React.ComponentPropsWithoutRe
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen">
-      <Container className="relative py-20 sm:pb-24 sm:pt-36">
+    <div className="relative">
+      <Container className="relative py-12 ">
         {/* <Image
           src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
           alt="Hero decoration"
