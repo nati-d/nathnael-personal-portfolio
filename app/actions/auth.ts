@@ -1,0 +1,56 @@
+'use server'
+
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
+
+export async function login(email: string, password: string) {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}))
+            throw new Error(errorData.message || 'Invalid credentials')
+        }
+
+        const data = await response.json()
+
+        if (!data.access_token || !data.refresh_token) {
+            throw new Error('Invalid response from server')
+        }
+
+        // Store tokens in cookies
+        const cookiesStore = await cookies()
+        cookiesStore.set('access_token', data.access_token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: data.access_token_expires_in || 3600, // Default to 1 hour if not provided
+            sameSite: 'lax',
+            path: '/',
+        })
+        cookiesStore.set('refresh_token', data.refresh_token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: data.refresh_token_expires_in || 604800, // Default to 7 days if not provided
+            sameSite: 'lax',
+            path: '/',
+        })
+
+        redirect('/')
+    } catch (error) {
+        if (error instanceof Error) {
+            throw error
+        }
+        throw new Error('An unexpected error occurred during login')
+    }
+}
+
+export async function logout() {
+    const cookiesStore = await cookies()
+    cookiesStore.delete('access_token')
+    cookiesStore.delete('refresh_token')
+    redirect('/auth/login')
+}
