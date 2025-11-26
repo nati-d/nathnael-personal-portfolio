@@ -235,15 +235,22 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
+      className="relative z-[70] mr-4 flex items-center justify-center px-2 py-1 shrink-0"
     >
       <Image
         src="/images/eocrh-logo.png"
         alt="EOTC Resource Hub Logo"
         width={120}
         height={40}
-        className="h-8 w-auto object-contain"
+        className="h-8 w-auto object-contain block"
         priority
+        unoptimized
+        style={{ 
+          display: 'block',
+          maxHeight: '32px',
+          width: 'auto',
+          height: 'auto'
+        }}
       />
     </Link>
   );

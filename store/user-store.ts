@@ -11,7 +11,16 @@ export const useUserStore = create<UserStore>((set) => ({
     set({ loading: true, error: null });
     try {
       const data = await getUserData();
-      set({ userData: data, loading: false, error: null });
+      if (data) {
+        set({ userData: data, loading: false, error: null });
+      } else {
+        // No token found - user is not logged in
+        set({ 
+          userData: null, 
+          loading: false, 
+          error: null // Don't show error if just not logged in
+        });
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to load user data';
       set({ 

@@ -119,7 +119,8 @@ export async function getUserData() {
         const accessToken = cookiesStore.get('access_token')?.value
 
         if (!accessToken) {
-            throw new Error('No access token found')
+            // Return null instead of throwing error - let the UI handle it gracefully
+            return null
         }
 
         const response = await fetch(`${apiUrl}/auth/me`, {
