@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication",
+  title: "EOTC",
+  description: "EOTC Dashboard",
 };
 
-export default function AuthLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

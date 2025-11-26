@@ -7,39 +7,38 @@ export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl
 
     const isAuthRoute = pathname.startsWith('/auth')
-    const isProtectedRoute = pathname.startsWith('/dashboard')
     const isRootRoute = pathname === '/'
+    
+    // Define protected routes (routes that require authentication)
+    // Exclude auth routes from being protected
+    const isProtectedRoute = !isAuthRoute && pathname !== '/'
 
     // If user is logged in
     if (accessToken) {
-        // Redirect from auth routes to dashboard
+        // Redirect from auth routes to home
         if (isAuthRoute) {
-            return NextResponse.redirect(new URL('/dashboard', request.url))
+            return NextResponse.redirect(new URL('/', request.url))
         }
-        // Redirect from root route to dashboard
-        if (isRootRoute) {
-            return NextResponse.redirect(new URL('/dashboard', request.url))
-        }
-        // Allow access to dashboard and other routes
+        // Root route is allowed for logged-in users (or redirect to dashboard if you prefer)
+        // For now, we'll allow it
         return NextResponse.next()
     }
 
     // If user is not logged in
-    // Protect dashboard routes - redirect to login
+    // Protect routes (except auth routes and root)
     if (isProtectedRoute) {
         const url = new URL('/auth/login', request.url)
         url.searchParams.set('callbackUrl', request.url)
         return NextResponse.redirect(url)
     }
 
-    // Allow access to auth routes and other public routes
+    // Allow access to auth routes and root route for non-logged-in users
     return NextResponse.next()
 }
 
 export const config = {
     matcher: [
         '/',
-        '/dashboard/:path*',
-        '/auth/:path*',
+        '/((?!api|_next/static|_next/image|favicon.ico).*)',
     ],
 }
