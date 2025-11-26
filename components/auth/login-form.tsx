@@ -170,7 +170,7 @@ export function LoginForm() {
         </Button>
       </Form>
       <p className="text-center text-sm text-muted-foreground">
-        Don't have an account? <Link href="/auth/register" className="text-blue-500 hover:text-blue-600">Register</Link>
+        Don&apos;t have an account? <Link href="/auth/register" className="text-blue-500 hover:text-blue-600">Register</Link>
       </p>
     </div>
   );
