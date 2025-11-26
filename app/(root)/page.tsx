@@ -113,6 +113,41 @@ const RootPage = () => {
             {JSON.stringify(userData, null, 2)}
           </pre>
         </div>
+        {/* Raw JSON for debugging */}
+        <div className="bg-muted rounded-lg border p-4">
+          <h3 className="text-sm font-semibold mb-2">Raw JSON Response:</h3>
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(userData, null, 2)}
+          </pre>
+        </div>
+        {/* Raw JSON for debugging */}
+        <div className="bg-muted rounded-lg border p-4">
+          <h3 className="text-sm font-semibold mb-2">Raw JSON Response:</h3>
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(userData, null, 2)}
+          </pre>
+        </div>
+        {/* Raw JSON for debugging */}
+        <div className="bg-muted rounded-lg border p-4">
+          <h3 className="text-sm font-semibold mb-2">Raw JSON Response:</h3>
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(userData, null, 2)}
+          </pre>
+        </div>
+        {/* Raw JSON for debugging */}
+        <div className="bg-muted rounded-lg border p-4">
+          <h3 className="text-sm font-semibold mb-2">Raw JSON Response:</h3>
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(userData, null, 2)}
+          </pre>
+        </div>
+        {/* Raw JSON for debugging */}
+        <div className="bg-muted rounded-lg border p-4">
+          <h3 className="text-sm font-semibold mb-2">Raw JSON Response:</h3>
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(userData, null, 2)}
+          </pre>
+        </div>
       </div>
     </div>
   )
