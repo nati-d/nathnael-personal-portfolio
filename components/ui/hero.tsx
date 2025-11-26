@@ -1,26 +1,19 @@
 "use client"
 
-import type React from "react"
-import { cn } from "@/lib/utils"
-
-export function Container({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-  return <div className={cn("mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", className)} {...props} />
-}
+import { Container } from "@/components/ui/container"
 
 export default function HeroSection() {
   return (
-    <div className="relative">
-      <Container className="relative py-12 ">
-        {/* <Image
-          src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
-          alt="Hero decoration"
-          width={400}
-          height={400}
-          className="absolute z-2 -top-0 left-10"
-          unoptimized
-        /> */}
-
-        <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
+    <div className="relative w-full min-h-[600px] overflow-hidden rounded-t-3xl">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-t-3xl"
+        style={{
+          backgroundImage: 'url(/hero-bg.jpg)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background rounded-t-3xl" />
+      <Container className="relative py-20 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-2xl lg:max-w-5xl  p-8 sm:p-10 lg:p-12">
           <h1 className="font-geist text-5xl font-normal tracking-tighter bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent sm:text-7xl">
             <span className="sr-only">EOTC Resource Hub - </span>
             Welcome to EOTC Resource Hub
