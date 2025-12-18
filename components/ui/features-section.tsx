@@ -238,7 +238,7 @@ export function FeaturesSection() {
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-neutral-600 dark:text-neutral-400" />
             <p className="text-xs text-neutral-600 dark:text-neutral-400">
-              <span className="font-semibold">Location:</span> San Francisco, Remote
+              <span className="font-semibold">Location:</span> Addis Ababa, Ethiopia
             </p>
           </div>
 
