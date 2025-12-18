@@ -12,13 +12,13 @@ export default function NotFound() {
           </div>
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
-          Hi, I'm Nathy
+          Hi, I&apos;m Nathy
         </h1>
         <p className="text-lg sm:text-xl text-muted-foreground mb-6 max-w-lg leading-relaxed">
-          Welcome to my personal space. I'm passionate about building meaningful experiences and connecting with amazing people.
+          Welcome to my personal space. I&apos;m passionate about building meaningful experiences and connecting with amazing people.
         </p>
         <p className="text-base text-muted-foreground mb-8 max-w-md">
-          Feel free to explore or reach out if you'd like to connect!
+          Feel free to explore or reach out if you&apos;d like to connect!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Button asChild size="lg" className="w-full sm:w-auto">

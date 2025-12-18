@@ -17,12 +17,40 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
-  useEffect(() => {
+  const updateHeight = () => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
     }
-  }, [ref]);
+  };
+
+  useEffect(() => {
+    updateHeight();
+    
+    // Update height when window resizes
+    window.addEventListener('resize', updateHeight);
+    
+    // Update height when images load
+    const images = ref.current?.querySelectorAll('img');
+    if (images) {
+      images.forEach((img) => {
+        img.addEventListener('load', updateHeight);
+        // If image is already loaded
+        if (img.complete) {
+          updateHeight();
+        }
+      });
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+      if (images) {
+        images.forEach((img) => {
+          img.removeEventListener('load', updateHeight);
+        });
+      }
+    };
+  }, [data]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -42,7 +70,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Projects
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          A collection of my recent work and projects I'm proud of.
+          A collection of my recent work and projects I&apos;m proud of.
         </p>
       </Container>
 
@@ -51,7 +79,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start md:gap-10"
+            className="flex justify-start md:gap-10 mb-8 last:mb-0"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
@@ -66,7 +94,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
-              {item.content}{" "}
+              <div className="border border-border rounded-lg p-6 bg-card">
+                {item.content}
+              </div>
             </div>
           </div>
           ))}

@@ -1,6 +1,7 @@
 import HeroSection from '@/components/ui/hero'
 import { FeaturesSection } from '@/components/ui/features-section'
-import { FAQSection } from '@/components/ui/faq-section'
+// import { FAQSection } from '@/components/ui/faq-section'
+import { ContactForm } from '@/components/ui/contact-form'
 
 const RootPage = () => {
   return (
@@ -12,7 +13,8 @@ const RootPage = () => {
         <FeaturesSection />
       </div>
       <div id="contact">
-        <FAQSection />
+        {/* <FAQSection /> */}
+        <ContactForm />
       </div>
     </>
   )

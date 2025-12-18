@@ -4,8 +4,8 @@ import { Footer } from "@/components/ui/footer";
 
 
 export const metadata: Metadata = {
-  title: "EOTC",
-  description: "EOTC Dashboard",
+  title: "Nathy",
+  description: "Personal website and portfolio of Nathy",
 };
 
 export default function RootLayout({
