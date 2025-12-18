@@ -199,7 +199,7 @@ export function FeaturesSection() {
       content: (
         <div className="space-y-4">
           <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            A comprehensive multi-platform application featuring mobile, dashboard, and backend components. Built with modern technologies to deliver seamless user experiences across different platforms.
+            A comprehensive multi-platform application featuring mobile, dashboard, and backend components. Includes a dashboard for parental control, emotion detection in the app for children that automatically changes the story based on their emotions, language teaching features, and wellbeing practice exercises. Built with modern technologies to deliver seamless user experiences across different platforms.
           </p>
           
           <Link 
