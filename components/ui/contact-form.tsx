@@ -49,7 +49,7 @@ export function ContactForm() {
       setTimeout(() => {
         setSubmitStatus("idle");
       }, 3000);
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
       setTimeout(() => {
         setSubmitStatus("idle");
