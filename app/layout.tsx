@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EOTC Resource Hub",
-  description: "EOTC Resource Hub",
+  title: "Nathy",
+  description: "Personal website and portfolio of Nathy",
 };
 
 export default function RootLayout({

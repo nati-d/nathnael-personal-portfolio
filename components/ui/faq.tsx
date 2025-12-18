@@ -27,7 +27,7 @@ export function FAQ({ items }: FAQProps) {
           Frequently Asked Questions
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Everything you need to know to get the most out of your spiritual journey
+          Common questions about my work, process, and how we can collaborate
         </p>
       </Container>
 

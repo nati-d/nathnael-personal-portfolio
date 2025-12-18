@@ -5,9 +5,15 @@ import { FAQSection } from '@/components/ui/faq-section'
 const RootPage = () => {
   return (
     <>
-      <HeroSection />
-      <FeaturesSection />
-      <FAQSection />
+      <div id="about">
+        <HeroSection />
+      </div>
+      <div id="projects">
+        <FeaturesSection />
+      </div>
+      <div id="contact">
+        <FAQSection />
+      </div>
     </>
   )
 }

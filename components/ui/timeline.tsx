@@ -39,10 +39,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <Container className="py-20">
         <h2 className="text-lg md:text-4xl mb-4 font-bold text-black dark:text-white max-w-4xl">
-          Powerful Features
+          Projects
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Built for converts, by the community. Everything you need in one place.
+          A collection of my recent work and projects I'm proud of.
         </p>
       </Container>
 

@@ -5,20 +5,16 @@ export interface NavbarMenuItem {
 
 export const NAVBAR_MENU_ITEMS: NavbarMenuItem[] = [
   {
-    name: "Resources",
-    link: "/resources",
-  },
-  {
-    name: "Upload",
-    link: "/upload",
-  },
-  {
     name: "About",
-    link: "/about",
+    link: "/#about",
   },
   {
-    name: "Dashboard",
-    link: "/dashboard",
+    name: "Projects",
+    link: "/#projects",
+  },
+  {
+    name: "Contact",
+    link: "/#contact",
   },
 ];
 
